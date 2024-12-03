@@ -8,26 +8,24 @@
 import XCTest
 
 final class AutomationAssessmentUITests: XCTestCase {
-
+    var app: XCUIApplication!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+        try super.setUpWithError()
+        app = XCUIApplication()
+        app.launch()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        app.terminate()
+        app = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testMainPageLoadsWithExpectedContent() throws {
+        // This opens the app and calls waitForPage which checks the expected content is rendered
+        TestingPageModel(app: app).waitForPage()
     }
 
     func testLaunchPerformance() throws {
@@ -38,4 +36,67 @@ final class AutomationAssessmentUITests: XCTestCase {
             }
         }
     }
+    
+    
+    func testCheckRefreshButtonWorks() throws {
+        TestingPageModel(app: app).waitForPage()
+            .assertTimeChangesAfterRefresh()
+    }
+        
+    func testSelectTechnologyFromPicker() throws {
+        TestingPageModel(app: app).waitForPage()
+            .assertGoToPolitics()
+            .tapOnTopicSelect()
+            .tapOnTechnology()
+            .assertGoToTechnology()
+        }
+    
+    func testNavigateToTechnologyPage() throws {
+        TestingPageModel(app: app).waitForPage()
+            .assertGoToPolitics()
+            .tapOnTopicSelect()
+            .tapOnTechnology()
+            .assertGoToTechnology()
+            .tapOnGoToTechnology()
+            .assertTechnologyContent()
+            .swipeUpXTimes(5)
+        // find end of text - properly :O
+            .checkForEndOfPlaceholderText()
+            .tapOnBackButton()
+            .waitForPage()
+    }
+    
+    func testNoTvLicense() throws {
+        TestingPageModel(app: app).waitForPage()
+            .tapOnTopicSelect()
+            .tapOnTvGuide()
+            .assertGoToTvGuide()
+            .tapOnGoToTvGuide()
+            .assertTvGuidePopup()
+            .tapNoTvLicense()
+            .waitForPage()
+    }
+    
+    func testOpenTVGuide() throws {
+        TestingPageModel(app: app).waitForPage()
+            .tapOnTopicSelect()
+            .tapOnTvGuide()
+            .assertGoToTvGuide()
+            .tapOnGoToTvGuide()
+            .assertTvGuidePopup()
+            .tapYesTvLicense()
+            .assertTvGuideContent()
+            .tapOnBackButton()
+            .waitForPage()
+    }
+    
+    func testTapOnBreakingNewsAndDismissPopup() throws {
+        TestingPageModel(app: app).waitForPage()
+            .tapOnBreakingNews()
+            .assertSomethingHasGoneWrong()
+            .tapOnOkButton()
+            .waitForPage()
+    }
+    
+
 }

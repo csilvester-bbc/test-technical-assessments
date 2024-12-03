@@ -16,6 +16,7 @@
 		6A9F7F0C2CD0E39700A70348 /* AutomationAssessmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7F0B2CD0E39700A70348 /* AutomationAssessmentUITestsLaunchTests.swift */; };
 		6A9F7F192CD0ED2500A70348 /* TagContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7F182CD0ED2500A70348 /* TagContentView.swift */; };
 		6A9F7F1B2CD14B7400A70348 /* AutomationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9F7F1A2CD14B7400A70348 /* AutomationIdentifiers.swift */; };
+		AF8B3F0A2CFB50F500318372 /* TestingPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8B3F092CFB50F100318372 /* TestingPageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6A9F7F182CD0ED2500A70348 /* TagContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagContentView.swift; sourceTree = "<group>"; };
 		6A9F7F1A2CD14B7400A70348 /* AutomationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutomationIdentifiers.swift; sourceTree = "<group>"; };
 		6A9F7F1C2CD156B700A70348 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AF8B3F092CFB50F100318372 /* TestingPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingPageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			children = (
 				6A9F7F092CD0E39700A70348 /* AutomationAssessmentUITests.swift */,
 				6A9F7F0B2CD0E39700A70348 /* AutomationAssessmentUITestsLaunchTests.swift */,
+				AF8B3F092CFB50F100318372 /* TestingPageModel.swift */,
 			);
 			path = AutomationAssessmentUITests;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			files = (
 				6A9F7F0A2CD0E39700A70348 /* AutomationAssessmentUITests.swift in Sources */,
 				6A9F7F0C2CD0E39700A70348 /* AutomationAssessmentUITestsLaunchTests.swift in Sources */,
+				AF8B3F0A2CFB50F500318372 /* TestingPageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
