@@ -1,55 +1,12 @@
 # Test Technical Assessments
+# iOS Test Automation
 
-This repository contains a sample mobile application implemented for both iOS and Android platforms. It demonstrates various UI components and serves as a foundation for testing various UI components and scenarios.
+Thank you for taking the time to look at my application and technical task.
 
----
+There are no external dependencies for running the tests that I have put together, if you navigate to the AutomationAssessmentUITests.swift file you should hopefully be able to run them from there.
 
-## Requirements
+I had a few considerations when writing these, one of which was the use of an extensions file. Since this is a simple app I opted against using one, but in a more normal app case, I would move some of the more generally "useful" functions into that so they can be called from other tests and page models. Like the "swipeUpXTimes" function I used to scroll to the bottom of some content.
 
-### iOS
-- **Xcode**: Version 15.2 or later  
-- **iOS Deployment Target**: iOS 17.1 or later  
+I tried to approach it in a way that keeps the UI Tests file quite human readable, with the functions acting as user journey instructions. Keeping the logic contained to the page model. I have found this to be a good way to help onboard testers who have less technical experience in the past.
 
-### Android
-- **Android Studio**: Version Ladybug or later  
-- **Android SDK**: API Level 26 or higher (running on the device only)  
-
----
-
-## Features
-
-This sample application includes the following UI components:  
-- **Picker Views**: Allow users to select options from a list.  
-- **Buttons**: Standard buttons that perform actions when tapped.  
-- **Alerts**: Pop-up dialogs with confirmation and cancellation options.  
-- **Navigation Links**: Links that navigate to different pages.  
-- **Content View**: A detailed page showcasing scrolling, title views, and advanced navigation.  
-
----
-
-## Overview
-
-Upon launching the app (iOS or Android), you’ll find:  
-- **Home Page**: Includes links to explore various UI components like Pickers, Buttons, and Alerts.  
-- **Content View**: A content-rich page for testing rendering, scrolling, and navigation capabilities.  
-
----
-
-## Getting Started
-
-1. **Fork the Repository**:  
-   fork the repository to your local machine.  
-
-2. **Open the Project in the Appropriate IDE**:  
-   - For Android: Open the Android project in **Android Studio**.  
-   - For iOS: Open the `automation-swiftui` project in **Xcode**.
-   - Ensure that you can successfully open and run the project on the chosen platform. 
-
-3. **Follow the Tech Home Test Brief**:
-     Follow the instructions mentioned in the "Take home technical test brief.pdf" sent to your email. 
-    
-
----
-
-Happy testing! 🚀
-
+One issue that I did notice with my tests is in scenario 4, when navigating to the bottom of the page. The way that I implemented the function checkForEndOfPlaceholderText would find the "This is the end of the placeholder text." even if the UI tests did not scroll down. As the content text is all one element, this is obtained straight away. I could not find a better way to identify this while I was working on this assessment, so I have left it as it is and thought I should make a note of it here :)
